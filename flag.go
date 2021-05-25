@@ -1147,15 +1147,7 @@ func (f *FlagSet) Parse(arguments []string) error {
 
 	err := f.parseArgs(arguments, set)
 	if err != nil {
-		switch f.errorHandling {
-		case ContinueOnError:
-			return err
-		case ExitOnError:
-			fmt.Println(err)
-			os.Exit(2)
-		case PanicOnError:
-			panic(err)
-		}
+		return err
 	}
 	return nil
 }
